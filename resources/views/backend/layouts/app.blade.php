@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eden Spell | Dashboard</title>
+    <title>Eden Spell | @yield('title', 'Dashboard')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -82,15 +82,23 @@
     </style>
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
-    <!-- Top Navigation Bar -->
-    @include('backend.layouts.navigation')
-    <!-- Main Container -->
-   <main>
-        @yield('content')
-
-    </main>
+    
+    <!-- Header -->
+    @include('backend.layouts.header')
+    
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        @include('backend.layouts.sidebar')
+        
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            @yield('content')
+        </main>
+    </div>
+    
     <!-- Footer -->
-   @include('backend.layouts.footer')
+    @include('backend.layouts.footer')
+    
     <script>
         // Mobile sidebar toggle
         function toggleMobileSidebar() {
@@ -101,27 +109,37 @@
         // Initialize dropdowns
         document.addEventListener('DOMContentLoaded', function() {
             // Toggle mobile menu
-            document.getElementById('mobileMenuToggle').addEventListener('click', toggleMobileSidebar);
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', toggleMobileSidebar);
+            }
 
             // Close mobile sidebar when clicking outside
-            document.getElementById('mobileSidebar').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    toggleMobileSidebar();
-                }
-            });
+            const mobileSidebar = document.getElementById('mobileSidebar');
+            if (mobileSidebar) {
+                mobileSidebar.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        toggleMobileSidebar();
+                    }
+                });
+            }
 
             // Toggle notification dropdown
-            const notificationBtn = document.querySelector('button.relative');
-            notificationBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const dropdown = this.nextElementSibling;
-                dropdown.classList.toggle('hidden');
-            });
+            const notificationBtn = document.getElementById('notificationBtn');
+            if (notificationBtn) {
+                notificationBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dropdown = this.nextElementSibling;
+                    if (dropdown) {
+                        dropdown.classList.toggle('hidden');
+                    }
+                });
+            }
 
             // Close dropdowns when clicking outside
             document.addEventListener('click', function() {
-                document.querySelectorAll('.hidden[class*="absolute"]').forEach(el => {
-                    if (!el.classList.contains('group-hover:block')) {
+                document.querySelectorAll('.dropdown-content').forEach(el => {
+                    if (!el.classList.contains('hidden')) {
                         el.classList.add('hidden');
                     }
                 });
@@ -157,7 +175,7 @@
             setInterval(updateTime, 60000);
         });
 
-        // Dark mode toggle (example)
+        // Dark mode toggle
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
