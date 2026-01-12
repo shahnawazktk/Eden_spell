@@ -9,7 +9,7 @@
         <!-- Section Header -->
         <div class="text-center mb-16 lg:mb-20 animate-slide-up">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/30 to-black border border-red-800/50 mb-6">
-                <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 <span class="text-sm font-semibold text-red-400 tracking-wide">SUCCESS STORIES</span>
             </div>
             
@@ -70,7 +70,7 @@
                     <!-- Project Category -->
                     <div class="absolute bottom-4 left-4">
                         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-red-800/50">
-                            <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                             <span class="text-xs font-semibold text-red-400 tracking-wide">FINTECH</span>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                     <!-- Project Category -->
                     <div class="absolute bottom-4 left-4">
                         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-red-800/50">
-                            <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                             <span class="text-xs font-semibold text-red-400 tracking-wide">HEALTHCARE</span>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                     <!-- Project Category -->
                     <div class="absolute bottom-4 left-4">
                         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-red-800/50">
-                            <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                             <span class="text-xs font-semibold text-red-400 tracking-wide">E-COMMERCE</span>
                         </div>
                     </div>
@@ -358,7 +358,7 @@
                     <!-- Project Category -->
                     <div class="absolute bottom-4 left-4">
                         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-red-800/50">
-                            <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                             <span class="text-xs font-semibold text-red-400 tracking-wide">ENTERPRISE</span>
                         </div>
                     </div>

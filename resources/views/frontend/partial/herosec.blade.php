@@ -18,7 +18,7 @@
 
                 <!-- Badge -->
                 <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur border border-white/10 text-sm text-red-400 font-semibold animate-fade-in">
-                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
                     Enterprise Software Solutions
                 </div>
 

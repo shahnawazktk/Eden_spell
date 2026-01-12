@@ -22,9 +22,9 @@
         <div class="text-center mb-32 animate-slide-up">
             <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-black via-red-900/10 to-black border border-red-800/30 mb-8 group hover:border-red-700/50 transition-all duration-500">
                 <div class="flex gap-1">
-                    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse" style="animation-delay: 0.2s;"></div>
-                    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse" style="animation-delay: 0.4s;"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse" style="animation-delay: 0.2s;"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse" style="animation-delay: 0.4s;"></div>
                 </div>
                 <span class="text-sm font-semibold text-red-400 tracking-wider">SYSTEMATIC APPROACH</span>
             </div>

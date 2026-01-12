@@ -13,7 +13,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="animate-slide-left">
                 <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/20 to-black border border-red-800/30 mb-8">
-                    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                     <span class="text-sm font-semibold text-red-400">ABOUT US</span>
                 </div>
                 
@@ -128,7 +128,7 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20 animate-slide-up">
             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/20 to-black border border-red-800/30 mb-6">
-                <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 <span class="text-sm font-semibold text-red-400">OUR JOURNEY</span>
             </div>
             
@@ -301,7 +301,7 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20 animate-slide-up">
             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/20 to-black border border-red-800/30 mb-6">
-                <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 <span class="text-sm font-semibold text-red-400">OUR PHILOSOPHY</span>
             </div>
             
@@ -383,7 +383,7 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20 animate-slide-up">
             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/20 to-black border border-red-800/30 mb-6">
-                <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 <span class="text-sm font-semibold text-red-400">MEET THE TEAM</span>
             </div>
             

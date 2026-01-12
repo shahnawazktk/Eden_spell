@@ -10,7 +10,7 @@
         <!-- Section Header -->
         <div class="text-center mb-16 lg:mb-20 animate-slide-up">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/30 to-black border border-red-800/50 mb-6">
-                <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 <span class="text-sm font-semibold text-red-400 tracking-wide">ENTERPRISE SOLUTIONS</span>
             </div>
             
