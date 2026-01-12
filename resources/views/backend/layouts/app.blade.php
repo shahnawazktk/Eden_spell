@@ -1,62 +1,172 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Eden Spell') }}</title>
-
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=cinzel:700|figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-        <style>
-            /* Eden Spell Main Theme Styles */
-            body {
-                background-color: #050505;
-                color: #e5e7eb;
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eden Spell | Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #dc2626, #7f1d1d);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #ef4444, #dc2626);
+        }
+        
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
             }
-            .eden-header {
-                background: linear-gradient(to right, #000000, #1a0505, #000000);
-                border-bottom: 2px solid #7f1d1d;
-                box-shadow: 0 4px 15px rgba(127, 29, 29, 0.4);
+            to {
+                transform: translateX(0);
+                opacity: 1;
             }
-            .eden-content-area {
-                background: radial-gradient(circle at top, #111111 0%, #000000 100%);
-                min-height: calc(100vh - 64px);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
             }
-            .header-title {
-                font-family: 'Cinzel', serif;
-                color: #ef4444;
-                letter-spacing: 2px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-        </style>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen eden-content-area">
-            <div class="eden-header">
-                @include('backend.layouts.navigation')
-            </div>
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Smooth transitions */
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        /* Glass effect */
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hide scrollbar but keep functionality */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+    <!-- Top Navigation Bar -->
+    @include('backend.layouts.navigation')
+    <!-- Main Container -->
+   <main>
+        @yield('content')
 
-            @isset($header)
-                <header class="bg-transparent">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <div class="border-l-4 border-red-600 pl-4">
-                            <h2 class="font-semibold text-xl text-gray-200 leading-tight header-title">
-                                {{ $header }}
-                            </h2>
-                        </div>
-                    </div>
-                </header>
-            @endisset
+    </main>
+    <!-- Footer -->
+   @include('backend.layouts.footer')
+    <script>
+        // Mobile sidebar toggle
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
 
-            <main>
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6">
-                     {{ $slot }}
-                </div>
-            </main>
-        </div>
-    </body>
+        // Initialize dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle mobile menu
+            document.getElementById('mobileMenuToggle').addEventListener('click', toggleMobileSidebar);
+
+            // Close mobile sidebar when clicking outside
+            document.getElementById('mobileSidebar').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    toggleMobileSidebar();
+                }
+            });
+
+            // Toggle notification dropdown
+            const notificationBtn = document.querySelector('button.relative');
+            notificationBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.nextElementSibling;
+                dropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.hidden[class*="absolute"]').forEach(el => {
+                    if (!el.classList.contains('group-hover:block')) {
+                        el.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Animate stats cards on hover
+            const statCards = document.querySelectorAll('.hover\\:scale-\\[1\\.02\\]');
+            statCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Update time dynamically
+            function updateTime() {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const timeElement = document.createElement('div');
+                timeElement.className = 'text-sm text-gray-400';
+                timeElement.textContent = now.toLocaleDateString('en-US', options);
+                
+                const existingTime = document.querySelector('.text-sm.text-gray-400');
+                if (existingTime) {
+                    existingTime.parentNode.replaceChild(timeElement, existingTime);
+                }
+            }
+
+            // Update time every minute
+            updateTime();
+            setInterval(updateTime, 60000);
+        });
+
+        // Dark mode toggle (example)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
 </html>
