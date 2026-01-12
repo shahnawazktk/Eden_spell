@@ -2,17 +2,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
+                <a href="{{ route('home') }}" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
                     <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-lg">
                         ES
                     </div>
                     <div>
                         <h1 class="text-xl font-bold">Eden Spell</h1>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
+                    <a href="{{ route('home') }}" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Home</a>
                     <a href="#services" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Services</a>
                     <a href="#portfolio" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Portfolio</a>
                     <a href="#career" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Career</a>
