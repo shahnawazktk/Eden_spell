@@ -37,7 +37,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen eden-content-area">
             <div class="eden-header">
-                @include('layouts.navigation')
+                @include('backend.layouts.navigation')
             </div>
 
             @isset($header)
