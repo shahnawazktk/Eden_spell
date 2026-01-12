@@ -601,18 +601,18 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
-                        <input type="text" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors" placeholder="John Doe">
+                        <input type="text" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors" placeholder="Your Name">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">Company</label>
-                        <input type="text" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors" placeholder="Your Company">
+                        <input type="text" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors" placeholder="Eden Spell">
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
-                        <input type="email" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors" placeholder="john@company.com">
+                        <input type="email" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors" placeholder="edenspell123@gmail.com">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
@@ -655,7 +655,7 @@
                     </svg>
                 </div>
                 <div class="text-white font-semibold">+1 (555) 123-4567</div>
-                <div class="text-sm text-gray-400">Mon-Fri, 9AM-6PM EST</div>
+                <div class="text-sm text-gray-400">Mon-Fri, 8:30 AM-5 PM EST</div>
             </div>
             
             <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
