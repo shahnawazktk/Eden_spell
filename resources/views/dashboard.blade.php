@@ -4,11 +4,8 @@
 
 @section('content')
     <div class="p-6 animate-fade-in">
-        <!-- Welcome Banner -->
-        @include('backend.component.banner')
-
         <!-- Stats Grid -->
-       @include('backend.component.grid')
+        @include('backend.component.grid')
 
         <!-- Main Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
@@ -20,169 +17,17 @@
                 <!-- Team Status -->
                 @include('backend.component.teamstatus')
 
-                <!-- Enhanced Quick Actions -->
-                <div class="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800 rounded-2xl p-6">
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-lg font-semibold text-white">Quick Actions</h3>
-                        <div class="flex items-center space-x-2">
-                            <button class="px-3 py-1 text-sm bg-gray-800 rounded-lg hover:bg-gray-700 flex items-center space-x-1 customize-actions-btn">
-                                <i class="fas fa-plus text-xs"></i>
-                                <span>Customize</span>
-                            </button>
-                            <button class="px-3 py-1 text-sm bg-red-600 rounded-lg hover:bg-red-700 quick-action-refresh">
-                                <i class="fas fa-bolt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <!-- New Task -->
-                        <div class="relative group">
-                            <button class="w-full p-4 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all group-hover:shadow-lg group-hover:shadow-red-500/10 hover-lift quick-action-btn" data-action="new-task">
-                                <div class="relative">
-                                    <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-plus text-red-500 text-xl"></i>
-                                    </div>
-                                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center animate-gentle-pulse">
-                                        <i class="fas fa-star text-xs text-white"></i>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-center text-gray-300">New Task</p>
-                                <p class="text-xs text-gray-500 text-center mt-1">Create & assign</p>
-                            </button>
-                            <div class="hidden absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl p-3 z-50 group-hover:block">
-                                <p class="text-sm text-gray-300 mb-2">Quick Task Options:</p>
-                                <div class="space-y-2">
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Assign to Team</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Create Template</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Recurring Task</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Generate Report -->
-                        <div class="relative group">
-                            <button class="w-full p-4 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all group-hover:shadow-lg group-hover:shadow-blue-500/10 hover-lift quick-action-btn" data-action="generate-report">
-                                <div class="relative">
-                                    <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-file-alt text-blue-500 text-xl"></i>
-                                    </div>
-                                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                                        <span class="text-xs text-white font-bold">AI</span>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-center text-gray-300">Generate Report</p>
-                                <p class="text-xs text-gray-500 text-center mt-1">AI-powered</p>
-                            </button>
-                            <div class="hidden absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl p-3 z-50 group-hover:block">
-                                <p class="text-sm text-gray-300 mb-2">Report Types:</p>
-                                <div class="space-y-2">
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Weekly Performance</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Financial Summary</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Client Analytics</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Schedule Meeting -->
-                        <div class="relative group">
-                            <button class="w-full p-4 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all group-hover:shadow-lg group-hover:shadow-green-500/10 hover-lift quick-action-btn" data-action="schedule-meeting">
-                                <div class="relative">
-                                    <div class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-calendar-check text-green-500 text-xl"></i>
-                                    </div>
-                                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-bolt text-xs text-white"></i>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-center text-gray-300">Schedule Meeting</p>
-                                <p class="text-xs text-gray-500 text-center mt-1">Smart scheduling</p>
-                            </button>
-                            <div class="hidden absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl p-3 z-50 group-hover:block">
-                                <p class="text-sm text-gray-300 mb-2">Meeting Types:</p>
-                                <div class="space-y-2">
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Team Standup</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Client Review</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Quick Sync</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- View Analytics -->
-                        <div class="relative group">
-                            <button class="w-full p-4 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all group-hover:shadow-lg group-hover:shadow-purple-500/10 hover-lift quick-action-btn" data-action="view-analytics">
-                                <div class="relative">
-                                    <div class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-chart-line text-purple-500 text-xl"></i>
-                                    </div>
-                                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-fire text-xs text-white"></i>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-center text-gray-300">View Analytics</p>
-                                <p class="text-xs text-gray-500 text-center mt-1">Real-time data</p>
-                            </button>
-                            <div class="hidden absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl p-3 z-50 group-hover:block">
-                                <p class="text-sm text-gray-300 mb-2">Analytics Dashboards:</p>
-                                <div class="space-y-2">
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Project Health</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Team Performance</button>
-                                    <button class="w-full text-left px-3 py-2 hover:bg-gray-700 rounded-lg text-sm">Client Insights</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Recent Actions -->
-                    <div class="bg-gray-800/50 rounded-xl p-4">
-                        <div class="flex items-center justify-between mb-3">
-                            <h4 class="text-sm font-semibold text-white">Recent Quick Actions</h4>
-                            <button class="text-xs text-gray-400 hover:text-gray-300 clear-recent-actions">Clear All</button>
-                        </div>
-                        <div class="space-y-2 recent-actions-list">
-                            <div class="flex items-center justify-between text-sm">
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-6 h-6 bg-red-900/30 rounded flex items-center justify-center">
-                                        <i class="fas fa-plus text-red-500 text-xs"></i>
-                                    </div>
-                                    <span class="text-gray-300">Created "Checkout Redesign" task</span>
-                                </div>
-                                <span class="text-xs text-gray-400">5m ago</span>
-                            </div>
-                            <div class="flex items-center justify-between text-sm">
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-6 h-6 bg-blue-900/30 rounded flex items-center justify-center">
-                                        <i class="fas fa-file-alt text-blue-500 text-xs"></i>
-                                    </div>
-                                    <span class="text-gray-300">Generated Q3 Report</span>
-                                </div>
-                                <span class="text-xs text-gray-400">2h ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- AI Suggestions -->
-                    <div class="mt-4 p-3 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-800/30 rounded-lg cursor-pointer ai-suggestion">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-robot text-white text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-white">AI Suggestion</p>
-                                <p class="text-xs text-gray-300">Based on your activity, consider scheduling a team sync to discuss the Analytics Dashboard delay.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Quick Actions -->
+               {{-- @include('backend.component.quickactions') --}}
             </div>
         </div>
 
         <!-- Recent Projects Table -->
-       @include('backend.component.recentprojects')
+        @include('backend.component.recentprojects')
     </div>
 
     <style>
-        /* Progress bar animations */
+        /* Existing animations */
         .progress-bar-animate {
             background-size: 200% 100%;
             animation: progressAnimation 2s ease infinite;
@@ -193,7 +38,6 @@
             100% { background-position: -100% 0; }
         }
 
-        /* Table row animations */
         .project-row {
             transition: all 0.2s ease;
         }
@@ -202,7 +46,6 @@
             transform: translateX(4px);
         }
 
-        /* Status indicator animations */
         @keyframes statusPulse {
             0%, 100% { 
                 opacity: 1;
@@ -218,7 +61,6 @@
             animation: statusPulse 2s infinite;
         }
 
-        /* Toggle switch */
         .toggle-switch {
             position: relative;
             width: 44px;
@@ -250,7 +92,6 @@
             transform: translateX(20px);
         }
 
-        /* Dropdown animations */
         .filter-dropdown, .sort-dropdown, .team-filter-dropdown {
             animation: dropdownSlide 0.2s ease;
         }
@@ -266,19 +107,10 @@
             }
         }
 
-        /* Search input focus effect */
         #projectSearch:focus {
             box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
         }
 
-        /* Responsive table */
-        @media (max-width: 1024px) {
-            .projects-table {
-                min-width: 1200px;
-            }
-        }
-
-        /* Action button hover effects */
         .action-btn, .team-action-btn {
             transition: all 0.2s ease;
         }
@@ -287,7 +119,6 @@
             transform: scale(1.1);
         }
 
-        /* Priority badge animations */
         @keyframes priorityPulse {
             0%, 100% { 
                 box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
@@ -301,7 +132,6 @@
             animation: priorityPulse 2s infinite;
         }
 
-        /* Gradient progress bars */
         .progress-gradient {
             background: linear-gradient(90deg, 
                 #ef4444 0%, 
@@ -319,7 +149,6 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Quick action hover effects */
         .hover-lift {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -330,14 +159,12 @@
                         0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Glass effect for cards */
         .glass-card {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Custom scrollbar for team list */
         .timeline-container {
             scrollbar-width: thin;
             scrollbar-color: #4f46e5 #1f2937;
@@ -357,7 +184,6 @@
             border-radius: 3px;
         }
 
-        /* Gentle pulse animation */
         @keyframes gentlePulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
@@ -367,7 +193,6 @@
             animation: gentlePulse 2s ease-in-out infinite;
         }
 
-        /* Gradient shift animation */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -380,7 +205,6 @@
             animation: gradientShift 15s ease infinite;
         }
 
-        /* Fade in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -390,7 +214,6 @@
             animation: fadeIn 0.5s ease-out;
         }
 
-        /* Scrollbar styling for table */
         .overflow-x-auto::-webkit-scrollbar {
             height: 8px;
         }
@@ -409,7 +232,51 @@
             background: linear-gradient(to right, #ef4444, #dc2626);
         }
 
-        /* Responsive adjustments */
+        /* Quick Actions Specific Styles */
+        .min-w-\[200px\] {
+            min-width: 200px;
+        }
+
+        .transition-transform {
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .transition-colors {
+            transition-property: background-color, border-color, color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .quick-action-btn:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+
+        @keyframes spin-slow {
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 3s linear infinite;
+        }
+
+        /* Responsive adjustments for quick actions */
+        @media (max-width: 1536px) {
+            .min-w-\[200px\] {
+                min-width: 180px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .flex-wrap > div {
+                flex: 1 0 calc(50% - 1rem);
+                min-width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .grid-cols-4 {
                 grid-template-columns: repeat(2, 1fr);
@@ -419,8 +286,22 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
+            .lg\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .flex-wrap > div {
+                flex: 1 0 100%;
+            }
+            
             .timeline-container {
                 max-height: 400px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .projects-table {
+                min-width: 1200px;
             }
         }
     </style>
@@ -689,6 +570,39 @@
             const clearRecentActionsBtn = document.querySelector('.clear-recent-actions');
             const aiSuggestion = document.querySelector('.ai-suggestion');
 
+            // Responsive behavior for quick actions
+            function handleQuickActionsResize() {
+                const quickActionsContainer = document.querySelector('.flex-wrap');
+                const actions = document.querySelectorAll('.flex-wrap > div');
+                
+                if (window.innerWidth < 1280) {
+                    actions.forEach(action => {
+                        action.classList.remove('min-w-[200px]');
+                        action.classList.add('w-full');
+                    });
+                } else {
+                    actions.forEach(action => {
+                        action.classList.add('min-w-[200px]');
+                        action.classList.remove('w-full');
+                    });
+                }
+            }
+
+            // Call on load and resize
+            window.addEventListener('load', handleQuickActionsResize);
+            window.addEventListener('resize', handleQuickActionsResize);
+
+            // Refresh quick actions
+            document.querySelector('.quick-action-refresh')?.addEventListener('click', function() {
+                this.classList.add('animate-spin');
+                
+                // Simulate refresh
+                setTimeout(() => {
+                    this.classList.remove('animate-spin');
+                    showNotification('Quick actions refreshed', 'success');
+                }, 1000);
+            });
+
             quickActionButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const action = this.dataset.action;
@@ -911,6 +825,7 @@
             }
 
             // Auto-refresh functionality
+            let refreshInterval;
             function startAutoRefresh() {
                 refreshInterval = setInterval(() => {
                     updateRandomProjectProgress();
