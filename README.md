@@ -95,7 +95,7 @@ Redis >= 6.0
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/eden-spell.git
+git clone https://github.com/shahnawazktk/Eden_spell.git
 cd eden-spell
 
 # 2. Install PHP dependencies
@@ -151,7 +151,7 @@ docker-compose exec app php artisan migrate --seed
 APP_NAME="Eden Spell"
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=https://your-domain.com
+APP_URL=http://localhost/eden_spell
 
 # Database
 DB_CONNECTION=mysql
