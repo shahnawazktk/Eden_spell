@@ -3,27 +3,29 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="p-6 animate-fade-in">
-        <!-- Stats Grid -->
-        @include('backend.component.grid')
+    <div class="h-full overflow-y-auto">
+        <div class="p-6 animate-fade-in">
+            <!-- Stats Grid -->
+            @include('backend.component.grid')
 
-        <!-- Main Content Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <!-- Left Column -->
-            @include('backend.component.activity')
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Left Column -->
+                @include('backend.component.activity')
 
-            <!-- Right Column -->
-            <div class="space-y-6">
-                <!-- Team Status -->
-                @include('backend.component.teamstatus')
+                <!-- Right Column -->
+                <div class="space-y-6">
+                    <!-- Team Status -->
+                    @include('backend.component.teamstatus')
 
-                <!-- Quick Actions -->
-               {{-- @include('backend.component.quickactions') --}}
+                    <!-- Quick Actions -->
+                   {{-- @include('backend.component.quickactions') --}}
+                </div>
             </div>
-        </div>
 
-        <!-- Recent Projects Table -->
-        @include('backend.component.recentprojects')
+            <!-- Recent Projects Table -->
+            @include('backend.component.recentprojects')
+        </div>
     </div>
 
     <style>

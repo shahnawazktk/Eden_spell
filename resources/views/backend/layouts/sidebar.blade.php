@@ -1,4 +1,4 @@
-<aside id="sidebar" class="w-64 bg-gray-900 border-r border-gray-800 flex-shrink-0 lg:block hidden overflow-y-auto">
+<aside id="sidebar" class="w-64 bg-gray-900 border-r border-gray-800 flex-shrink-0 lg:block hidden h-full overflow-y-auto">
     <nav class="p-4 space-y-2">
         <!-- Dashboard -->
         <a href="{{ route('dashboard') }}"
@@ -61,6 +61,12 @@
             class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
             <i class="fas fa-user-check w-5"></i>
             <span>Attendence</span>
+        </a>
+         <!-- Career -->
+        <a href="#"
+            class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
+            <i class="fas fa-briefcase w-5"></i>
+            <span>Career</span>
         </a>
         <!-- Reports -->
         <div class="group">

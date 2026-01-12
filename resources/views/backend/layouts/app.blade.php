@@ -81,23 +81,23 @@
         }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-950 text-gray-100 h-screen flex flex-col overflow-hidden">
     
     <!-- Header -->
     @include('backend.layouts.header')
     
-    <div class="flex flex-1 overflow-hidden">
+    <div class="flex flex-1 h-full overflow-hidden">
         <!-- Sidebar -->
         @include('backend.layouts.sidebar')
         
         <!-- Main Content -->
-        <main class="flex-1 overflow-y-auto">
+        <main class="flex-1 overflow-y-auto h-full">
             @yield('content')
         </main>
     </div>
     
     <!-- Footer -->
-    @include('backend.layouts.footer')
+    {{-- @include('backend.layouts.footer') --}}
     
     <script>
         // Mobile sidebar toggle
