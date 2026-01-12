@@ -1,18 +1,18 @@
 <header class="glass-effect border-b border-gray-800 sticky top-0 z-50">
     <div class="flex items-center justify-between px-6 py-4">
-        <!-- Left: Logo & Search -->
-        <div class="flex items-center space-x-6">
-            <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
-                    <span class="font-bold text-white">ES</span>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-white">Eden Spell</h1>
-                    <p class="text-xs text-gray-400">Digital Solutions</p>
-                </div>
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                <span class="font-bold text-white">ES</span>
             </div>
-            
+            <div>
+                <h1 class="text-xl font-bold text-white">Eden Spell</h1>
+                <p class="text-xs text-gray-400">Digital Solutions</p>
+            </div>
+        </div>
+        
+        <!-- Right: Search, Notifications & User Menu -->
+        <div class="flex items-center space-x-4">
             <!-- Search Bar -->
             <div class="hidden lg:block relative w-96">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -22,10 +22,7 @@
                        placeholder="Search projects, clients, tasks..." 
                        class="w-full pl-10 pr-4 py-2 bg-gray-900 border border-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-sm">
             </div>
-        </div>
-        
-        <!-- Right: User Menu & Notifications -->
-        <div class="flex items-center space-x-4">
+            
             <!-- Notifications -->
             <div class="relative">
                 <button id="notificationBtn" class="relative p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
@@ -79,12 +76,12 @@
                 </button>
                 
                 <!-- User Dropdown -->
-                <div class="dropdown-content hidden absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl py-2 z-50 group-hover:block hover:block">
+                <div class="dropdown-content opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl py-2 z-50">
                     <a href="{{ route('profile.edit') }}" class="flex items-center px-4 py-3 hover:bg-gray-800 transition-all">
                         <i class="fas fa-user text-gray-400 w-5"></i>
                         <span class="ml-3">Profile</span>
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-800 transition-all">
+                    <a href="{{ route('profile.edit') }}" class="flex items-center px-4 py-3 hover:bg-gray-800 transition-all">
                         <i class="fas fa-cog text-gray-400 w-5"></i>
                         <span class="ml-3">Settings</span>
                     </a>
