@@ -56,7 +56,12 @@
             <i class="fas fa-user-friends w-5"></i>
             <span>Team</span>
         </a>
-
+        <!-- Attendence -->
+        <a href="#"
+            class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
+            <i class="fas fa-user-check w-5"></i>
+            <span>Attendence</span>
+        </a>
         <!-- Reports -->
         <div class="group">
             <a href="#"
