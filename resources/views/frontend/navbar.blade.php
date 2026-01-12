@@ -8,7 +8,6 @@
                     </div>
                     <div>
                         <h1 class="text-xl font-bold">Eden Spell</h1>
-                        <p class="text-xs text-gray-500">Software House</p>
                     </div>
                 </div>
                 
@@ -16,6 +15,7 @@
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#services" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Services</a>
                     <a href="#portfolio" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Portfolio</a>
+                    <a href="#career" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Career</a>
                     <a href="#about" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">About</a>
                     <a href="#contact" class="font-medium text-gray-700 hover:text-primary-600 transition-colors">Contact</a>
                 </nav>
