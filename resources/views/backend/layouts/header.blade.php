@@ -25,12 +25,12 @@
             
             <!-- Notifications -->
             <div class="relative">
-                <button id="notificationBtn" class="relative p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
+                <button id="notificationBtn" onclick="toggleNotifications()" class="relative p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
                     <i class="fas fa-bell text-xl"></i>
                     <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                 </button>
                 <!-- Notification Dropdown -->
-                <div class="dropdown-content hidden absolute right-0 mt-2 w-80 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-4 z-50">
+                <div id="notificationDropdown" class="dropdown-content hidden absolute right-0 mt-2 w-80 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-4 z-50">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="font-semibold">Notifications</h3>
                         <span class="text-xs text-red-400 bg-red-900/30 px-2 py-1 rounded-full">5 new</span>
@@ -59,6 +59,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <button onclick="markAllAsRead()" class="text-sm text-red-400 hover:text-red-300">Mark all as read</button>
+                    </div>
                 </div>
             </div>
             
@@ -85,7 +88,7 @@
                         <i class="fas fa-cog text-gray-400 w-5"></i>
                         <span class="ml-3">Settings</span>
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-800 transition-all">
+                    <a href="{{ route('help.support') }}" class="flex items-center px-4 py-3 hover:bg-gray-800 transition-all">
                         <i class="fas fa-question-circle text-gray-400 w-5"></i>
                         <span class="ml-3">Help & Support</span>
                     </a>
