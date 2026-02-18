@@ -68,8 +68,13 @@
             <i class="fas fa-user-friends w-5"></i>
             <span>Team</span>
         </a>
+<<<<<<< HEAD
 
         <a href="#"
+=======
+        <!-- Attendence -->
+        <a href="{{ route('attendance.index') }}"
+>>>>>>> ba2e57d64b2cdd36778fcc7501aa9d8af70224f6
             class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
             <i class="fas fa-user-check w-5"></i>
             <span>Attendance</span>
