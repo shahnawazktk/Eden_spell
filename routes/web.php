@@ -11,6 +11,32 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/projects', function () {
+        return view('backend.projects.index', [
+            'scope' => 'all',
+        ]);
+    })->name('projects.index');
+
+    Route::get('/projects/active', function () {
+        return view('backend.projects.index', [
+            'scope' => 'active',
+        ]);
+    })->name('projects.active');
+
+    Route::get('/projects/archived', function () {
+        return view('backend.projects.index', [
+            'scope' => 'archived',
+        ]);
+    })->name('projects.archived');
+
+    Route::get('/projects/templates', function () {
+        return view('backend.projects.index', [
+            'scope' => 'templates',
+        ]);
+    })->name('projects.templates');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

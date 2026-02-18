@@ -157,23 +157,6 @@
                 });
             });
 
-            // Update time dynamically
-            function updateTime() {
-                const now = new Date();
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                const timeElement = document.createElement('div');
-                timeElement.className = 'text-sm text-gray-400';
-                timeElement.textContent = now.toLocaleDateString('en-US', options);
-                
-                const existingTime = document.querySelector('.text-sm.text-gray-400');
-                if (existingTime) {
-                    existingTime.parentNode.replaceChild(timeElement, existingTime);
-                }
-            }
-
-            // Update time every minute
-            updateTime();
-            setInterval(updateTime, 60000);
         });
 
         // Dark mode toggle
