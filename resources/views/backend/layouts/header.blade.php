@@ -25,12 +25,12 @@
             
             <!-- Notifications -->
             <div class="relative">
-                <button id="notificationBtn" onclick="toggleNotifications()" class="relative p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
+                <button id="notificationBtn" type="button" aria-expanded="false" aria-controls="notificationDropdown" class="relative p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all">
                     <i class="fas fa-bell text-xl"></i>
                     <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                 </button>
                 <!-- Notification Dropdown -->
-                <div id="notificationDropdown" class="dropdown-content hidden absolute right-0 mt-2 w-80 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-4 z-50">
+                <div id="notificationDropdown" class="hidden absolute right-0 mt-2 w-80 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-4 z-50">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="font-semibold">Notifications</h3>
                         <span class="text-xs text-red-400 bg-red-900/30 px-2 py-1 rounded-full">5 new</span>
@@ -60,14 +60,14 @@
                         </div>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-700">
-                        <button onclick="markAllAsRead()" class="text-sm text-red-400 hover:text-red-300">Mark all as read</button>
+                        <button id="markAllReadBtn" type="button" class="text-sm text-red-400 hover:text-red-300">Mark all as read</button>
                     </div>
                 </div>
             </div>
             
             <!-- User Profile -->
-            <div class="relative group">
-                <button class="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-800 transition-all">
+            <div class="relative">
+                <button id="userMenuBtn" type="button" aria-expanded="false" aria-controls="userMenuDropdown" class="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-800 transition-all">
                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
                         <span class="font-bold text-white">{{ strtoupper(substr(Auth::user()->name, 0, 2)) }}</span>
                     </div>
@@ -79,7 +79,7 @@
                 </button>
                 
                 <!-- User Dropdown -->
-                <div class="dropdown-content opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl py-2 z-50">
+                <div id="userMenuDropdown" class="hidden absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl py-2 z-50">
                     <a href="{{ route('profile.edit') }}" class="flex items-center px-4 py-3 hover:bg-gray-800 transition-all">
                         <i class="fas fa-user text-gray-400 w-5"></i>
                         <span class="ml-3">Profile</span>

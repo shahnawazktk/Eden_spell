@@ -127,23 +127,69 @@
 
             // Toggle notification dropdown
             const notificationBtn = document.getElementById('notificationBtn');
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userMenuDropdown = document.getElementById('userMenuDropdown');
+            const markAllReadBtn = document.getElementById('markAllReadBtn');
+
+            function closeHeaderDropdowns() {
+                if (notificationDropdown) {
+                    notificationDropdown.classList.add('hidden');
+                }
+                if (notificationBtn) {
+                    notificationBtn.setAttribute('aria-expanded', 'false');
+                }
+                if (userMenuDropdown) {
+                    userMenuDropdown.classList.add('hidden');
+                }
+                if (userMenuBtn) {
+                    userMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+
             if (notificationBtn) {
                 notificationBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    const dropdown = this.nextElementSibling;
-                    if (dropdown) {
-                        dropdown.classList.toggle('hidden');
+                    if (!notificationDropdown) return;
+
+                    const isHidden = notificationDropdown.classList.contains('hidden');
+                    closeHeaderDropdowns();
+
+                    if (isHidden) {
+                        notificationDropdown.classList.remove('hidden');
+                        notificationBtn.setAttribute('aria-expanded', 'true');
                     }
                 });
             }
 
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', function() {
-                document.querySelectorAll('.dropdown-content').forEach(el => {
-                    if (!el.classList.contains('hidden')) {
-                        el.classList.add('hidden');
+            if (userMenuBtn) {
+                userMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (!userMenuDropdown) return;
+
+                    const isHidden = userMenuDropdown.classList.contains('hidden');
+                    closeHeaderDropdowns();
+
+                    if (isHidden) {
+                        userMenuDropdown.classList.remove('hidden');
+                        userMenuBtn.setAttribute('aria-expanded', 'true');
                     }
                 });
+            }
+
+            if (markAllReadBtn) {
+                markAllReadBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dot = notificationBtn?.querySelector('span');
+                    if (dot) {
+                        dot.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Close header dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                closeHeaderDropdowns();
             });
 
             // Animate stats cards on hover
