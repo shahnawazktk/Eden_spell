@@ -6,7 +6,9 @@
     <div class="h-full overflow-y-auto">
         <div class="p-6 animate-fade-in">
             <!-- Stats Grid -->
-            @include('backend.component.grid')
+            <div id="dashboardGridRoot" data-live-url="{{ route('dashboard.live', absolute: false) }}">
+                @include('backend.component.grid')
+            </div>
 
             <!-- Main Content Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
@@ -27,6 +29,45 @@
             @include('backend.component.recentprojects')
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gridRoot = document.getElementById('dashboardGridRoot');
+            if (!gridRoot) {
+                return;
+            }
+
+            const liveUrl = gridRoot.dataset.liveUrl;
+
+            async function refreshDashboardGrid() {
+                try {
+                    if (document.visibilityState === 'hidden') {
+                        return;
+                    }
+
+                    const response = await fetch(liveUrl, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    if (!response.ok) {
+                        return;
+                    }
+
+                    const data = await response.json();
+                    if (typeof data.grid_html === 'string') {
+                        gridRoot.innerHTML = data.grid_html;
+                    }
+                } catch (error) {
+                    // Ignore transient polling errors.
+                }
+            }
+
+            setInterval(refreshDashboardGrid, 20000);
+        });
+    </script>
 
     <style>
         /* Existing animations */

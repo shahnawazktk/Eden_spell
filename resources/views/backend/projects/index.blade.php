@@ -25,19 +25,23 @@
 @section('content')
     <div class="h-full overflow-y-auto">
         <div class="p-6 animate-fade-in space-y-6">
+            @if (session('success'))
+                <div class="bg-green-900/30 border border-green-700/50 text-green-300 px-4 py-3 rounded-xl">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
                         <h1 class="text-2xl font-bold text-white">{{ $scopeTitle }}</h1>
                         <p class="text-sm text-gray-400 mt-1">{{ $scopeDescription }}</p>
                     </div>
-                    <div class="flex items-center gap-3 text-sm">
-                        <span class="px-3 py-1 rounded-full bg-green-900/30 text-green-400 border border-green-700/40">
-                            SLA 97.2%
-                        </span>
-                        <span class="px-3 py-1 rounded-full bg-blue-900/30 text-blue-400 border border-blue-700/40">
-                            Delivery Cycle: Weekly
-                        </span>
+                    <div class="flex items-center gap-3">
+                        <a href="{{ route('projects.create') }}"
+                            class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white text-sm font-medium">
+                            <i class="fas fa-plus mr-2"></i>New Project
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,92 +49,77 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-gray-900 border border-gray-800 rounded-xl p-4">
                     <p class="text-xs uppercase tracking-wide text-gray-500">Projects In View</p>
-                    <p id="scopeProjectCount" class="text-2xl font-bold text-white mt-2">0</p>
+                    <p id="scopeProjectCount" class="text-2xl font-bold text-white mt-2">{{ $scopeProjectCount }}</p>
                 </div>
                 <div class="bg-gray-900 border border-gray-800 rounded-xl p-4">
                     <p class="text-xs uppercase tracking-wide text-gray-500">Critical Items</p>
-                    <p id="criticalProjectCount" class="text-2xl font-bold text-red-400 mt-2">0</p>
+                    <p id="criticalProjectCount" class="text-2xl font-bold text-red-400 mt-2">{{ $criticalProjectCount }}</p>
                 </div>
                 <div class="bg-gray-900 border border-gray-800 rounded-xl p-4">
-                    <p class="text-xs uppercase tracking-wide text-gray-500">Scope</p>
-                    <p class="text-2xl font-bold text-blue-400 mt-2">{{ $scopeTitle }}</p>
+                    <p class="text-xs uppercase tracking-wide text-gray-500">On Track / Delayed</p>
+                    <p id="trackDelayedCount" class="text-2xl font-bold text-blue-400 mt-2">{{ $onTrackProjectCount }} / {{ $delayedProjectCount }}</p>
                 </div>
             </div>
 
-            <div id="projectScopeRoot" data-scope="{{ $currentScope }}">
-                @include('backend.component.recentprojects')
+            <div id="projectTableRoot" data-scope="{{ $currentScope }}" data-live-url="{{ route('projects.live', absolute: false) }}">
+                @include('backend.projects.table')
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const root = document.getElementById('projectScopeRoot');
-            if (!root) {
+            const tableRoot = document.getElementById('projectTableRoot');
+            if (!tableRoot) {
                 return;
             }
 
-            const scope = root.dataset.scope || 'all';
-            const rows = Array.from(document.querySelectorAll('.project-row'));
-            const emptyState = document.getElementById('emptyState');
-            const countElement = document.getElementById('scopeProjectCount');
-            const criticalCountElement = document.getElementById('criticalProjectCount');
+            const liveUrl = tableRoot.dataset.liveUrl;
+            const scope = tableRoot.dataset.scope || 'all';
+            const scopeCount = document.getElementById('scopeProjectCount');
+            const criticalCount = document.getElementById('criticalProjectCount');
+            const trackDelayedCount = document.getElementById('trackDelayedCount');
 
-            let visibleCount = 0;
-            let criticalCount = 0;
-
-            rows.forEach(function (row) {
-                const status = (row.dataset.status || '').toLowerCase();
-                const priority = (row.dataset.priority || '').toLowerCase();
-
-                let show = true;
-                if (scope === 'active') {
-                    show = status === 'active';
-                } else if (scope === 'archived' || scope === 'templates') {
-                    show = false;
-                }
-
-                row.style.display = show ? '' : 'none';
-
-                if (show) {
-                    visibleCount += 1;
-                    if (priority === 'high') {
-                        criticalCount += 1;
-                    }
-                }
-            });
-
-            if (countElement) {
-                countElement.textContent = String(visibleCount);
-            }
-
-            if (criticalCountElement) {
-                criticalCountElement.textContent = String(criticalCount);
-            }
-
-            if (emptyState) {
-                if (visibleCount === 0) {
-                    emptyState.classList.remove('hidden');
-                    const emptyHeading = emptyState.querySelector('h4');
-                    const emptyDescription = emptyState.querySelector('p');
-
-                    if (emptyHeading) {
-                        emptyHeading.textContent = scope === 'templates'
-                            ? 'No Templates Found'
-                            : 'No Projects Found';
+            async function refreshProjects() {
+                try {
+                    if (document.visibilityState === 'hidden') {
+                        return;
                     }
 
-                    if (emptyDescription) {
-                        emptyDescription.textContent = scope === 'archived'
-                            ? 'No archived projects are available right now.'
-                            : scope === 'templates'
-                                ? 'Create a reusable template to standardize future projects.'
-                                : 'Try adjusting your filters or search terms';
+                    const params = new URLSearchParams(window.location.search);
+                    params.set('scope', scope);
+
+                    const response = await fetch(liveUrl + '?' + params.toString(), {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    if (!response.ok) {
+                        return;
                     }
-                } else {
-                    emptyState.classList.add('hidden');
+
+                    const data = await response.json();
+                    if (typeof data.table_html === 'string') {
+                        tableRoot.innerHTML = data.table_html;
+                    }
+
+                    if (scopeCount) {
+                        scopeCount.textContent = String(data.scope_project_count ?? 0);
+                    }
+                    if (criticalCount) {
+                        criticalCount.textContent = String(data.critical_project_count ?? 0);
+                    }
+                    if (trackDelayedCount) {
+                        trackDelayedCount.textContent = `${data.on_track_project_count ?? 0} / ${data.delayed_project_count ?? 0}`;
+                    }
+                } catch (error) {
+                    // Ignore transient polling errors.
                 }
             }
+
+            setInterval(refreshProjects, 20000);
         });
     </script>
 @endsection
